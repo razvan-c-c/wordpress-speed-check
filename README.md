@@ -1,5 +1,5 @@
 # wordpress-speed-check
-Check your website's speed with 1 click inside your Wordpress Dashboard using Google Page Speed Insights
+Check your WordPress website's speed with 1 click inside your Dashboard using Google Page Speed Insights
 
 
-<img src="https://razvancilibeanu.com/demo.gif" width="800" height="800" />
+<img src="https://razvancilibeanu.com/demo.gif" width="600" height="370" />
