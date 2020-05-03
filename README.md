@@ -8,8 +8,20 @@
 <p><strong>The way this plugin works is pretty straight forward, it get's website domain and combines it with speedinsights URL then loads it in an iframe:</strong></p>
 
 ```php
-<p>$uri = $_SERVER['REQUEST_URI']; $protocol = ((!empty($_SERVER['HTTPS']) &amp;&amp; $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://"; $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; $parse = parse_url($url); $path = "https://developers.google.com/speed/pagespeed/insights/?url=" . $parse['host']; echo '&lt;style&gt;#wpbody-content{padding-bottom:0px!important}&lt;/style&gt;'; echo ''; echo '</p>
-<p>'; echo '&lt;iframe src="' . $path . '" style=" height: 200vh; width: calc(100% + 18px); border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"&gt;&lt;/iframe&gt;;'; echo '<br />';
+function dbi_render_plugin_settings_page()
+{
+    $uri = $_SERVER['REQUEST_URI'];
+    $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    $parse = parse_url($url);
+    $path = "https://developers.google.com/speed/pagespeed/insights/?url=" . $parse['host'];
+    echo '<style>#wpbody-content{padding-bottom:0px!important}</style>';
+    echo '<body style="background:#fff">';
+    echo '<div style="overflow-x: hidden;">';
+    echo '<iframe src="' . $path . '" style="  height: 200vh;  width: calc(100% + 18px);  border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>;';
+    echo '</div>';
+}
+
 ```
 
 <p>&nbsp;</p>
